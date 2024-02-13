@@ -1,5 +1,4 @@
-import dash_html_components as html
-import dash_core_components as dcc
+from dash import dcc, html
 import dash_daq as daq
 from data import options, dlists
 

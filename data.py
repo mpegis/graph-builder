@@ -14,20 +14,20 @@ try:
         ddays = (datetime.now() - dtime).days # days is the largest unit of time difference
         if ddays > 7:
             1/0
-        df = pd.read_csv('data.csv')
+        df = pd.read_csv('data2.csv')
 except (FileNotFoundError, ZeroDivisionError):
     with open('last-update.txt', 'w') as _:
         _.write(datetime.now().strftime('%Y-%m-%d'))
-    df = pd.read_csv('https://opendata.ecdc.europa.eu/covid19/casedistribution/csv')
+    df = pd.read_csv('/Users/michaelpegis/Coding/graph-builder/data2.csv')
     with open('data.csv', 'w') as _:
         df.to_csv(_, index=False)
 
 
 numeric_dtypes = ['int64', 'int32', 'float32', 'float64', 'datetime64[ns]']
 x1 = 'dateRep'
-gbl = df['geoId'].isin(['US', 'BR', 'IN'])
-df = df[gbl] # data subset for testing
-df[x1] = pd.to_datetime(df[x1], dayfirst=True)
+# gbl = df['geoId'].isin(['US', 'BR', 'IN'])
+# df = df[gbl] # data subset for testing
+# df[x1] = pd.to_datetime(df[x1], dayfirst=True)
 options = [{'label': x, 'value': x} for x in df.columns]
 df['dummy'] = True # dummy column used for some boolean tests
 

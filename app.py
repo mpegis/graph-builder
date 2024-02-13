@@ -5,8 +5,7 @@ GNU General Public License <https://www.gnu.org/licenses/>.
 """
 
 import dash
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import dcc, html
 from dash.dependencies import Input, Output, State, ALL, MATCH
 import pandas as pd
 from data import df, options
@@ -18,7 +17,7 @@ from alias import assign_alias
 from nav import assign_nav
 
 def create_dash_app():
-    fig = fig_updater(df, xs=['dateRep'], ys=['cases_weekly']) 
+    fig = fig_updater(df, xs=['Time [s]'], ys=['Voltage [V]']) 
     graph_layout = dcc.Graph(figure=fig, id='plot')
     app = dash.Dash(suppress_callback_exceptions=True)
     app.layout = html.Div([

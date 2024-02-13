@@ -4,8 +4,7 @@ GNU General Public License <https://www.gnu.org/licenses/>.
 """
 
 import dash
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import dcc, html
 import pandas as pd
 from dash.dependencies import Input, Output, State, MATCH, ALL
 from data import df, options, types
